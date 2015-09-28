@@ -1,0 +1,60 @@
+{% extends "uofa.html" %}
+
+{% block content %}
+
+
+    <h2>Accounts</h2>
+
+    <script>
+        $(function() {
+          $('#search_input').focus();
+          $("#search_input").autocomplete({
+            source: "/bc/api/get_names/",
+            minLength: 2,
+          });
+        };);
+    </script>
+    {% if user.is_staff %}
+    <form class="" method="get" action="" >
+        <input id="search_input" type="text" name="search" placeholder="Search Account ...">
+        <input type="submit" value="Search" class="btn btn-success"/>
+    </form>
+    {% endif %}
+
+
+    <table class='table table-responsive table-striped' cellspacing="0" >
+        <tr>
+            <th style="width:250px">Name</th>
+            <th style="width:20px">Drunk</th>
+            <th style="width:20px">Unique drunk</th>
+            <th style="width:20px">Special drunk</th>
+            <th style="width:20px">Special due</th>
+            <th style="width:60px">Balance</th>
+        {% if user.is_staff %}
+            <th style="width:200px">Payments</th>
+        {% endif %}
+        </tr>
+        {% for account in object_list %}
+            <tr> 
+                <td>{{ account }}</td>
+                <td>{{ account.drinks_had }}</td>
+                <td>{{ account.drinks_unique_had }}</td>
+                <td>{{ account.special_had }}</td>
+                {% if account.special_due > 0 %}
+                    <td style="background-color:yellow" >{{ account.special_due }}</td>
+                {% else %}
+                    <td>{{ account.special_due }}</td>
+                {% endif %}
+
+                {% if account.balance_dollars >= 0 %}
+                    <td>{{ account.balance_dollars }}</td>
+                {% else %}
+                    <td style="background-color:pink">{{ account.balance_dollars }}</td>
+                {% endif %}
+                {% if user.is_staff %}
+                    <td></td>
+                {% endif %}
+            <tr>
+        {% endfor %}
+    </table>
+{% endblock %}

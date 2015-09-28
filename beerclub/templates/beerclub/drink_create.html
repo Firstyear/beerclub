@@ -1,0 +1,81 @@
+{% extends "uofa.html" %}
+
+{% block content %}
+
+    <script src="/static/beerclub.js" async></script>
+
+
+    {{ form.non_field_errors }}
+    <form method="post" id="drink_form">
+        {% csrf_token %}
+        <div class="fieldWrapper form-group">
+            {{ form.name_pk.errors }}
+            {{ form.name_pk.as_hidden }}
+            <label for="id_name">Name:</label>
+            {{ form.name }}
+        </div>
+        <div class="fieldWrapper form-group">
+            {{ form.beer_pk.errors }}
+            {{ form.beer_pk.as_hidden }}
+            <label for="id_beer">Beer:</label>
+            {{ form.beer }}
+        </div>
+        <div class="fieldWrapper form-group">
+            {{ form.value.errors }}
+            <label for="id_value">Payment (AU cents):</label>
+            {{ form.value }}
+        </div>
+        <div id="showhide">
+            <div class="fieldWrapper form-group">
+                {{ form.payee_name_pk.errors }}
+                {{ form.payee_name_pk.as_hidden }}
+                <label for="id_payee_name">Payee Name:</label>
+                {{ form.payee_name }}
+            </div>
+            <div class="fieldWrapper form-group">
+                {{ form.free.errors }}
+                <label for="id_free">Free:</label>
+                {{ form.free }}
+            </div>
+            <div class="fieldWrapper form-group">
+                {{ form.special.errors }}
+                <label for="id_special">Special:</label>
+                {{ form.special }}
+            </div>
+        </div>
+        <input id="extras" type="button" value="Extras" class="btn btn-success"/>
+        <input id="submit" type="submit" value="Drink!" class="btn btn-success"/>
+    </form>
+
+    <div id="account_stats">
+        <table class='table table-striped' cellspacing="0" >
+            <tr>
+                <th style="width:20px">Drunk</th>
+                <th style="width:20px">Unique drunk</th>
+                <th style="width:20px">Special drunk</th>
+                <th style="width:20px">Special due</th>
+                <th style="width:60px">Balance</th>
+            </tr>
+            <tr>
+                <td id="account_had"></td>
+                <td id="account_unique_had"></td>
+                <td id="account_special_had"></td>
+                <td id="account_special_due"></td>
+                <td id="account_balance"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="account_unique">
+        <table class='table table-striped' cellspacing="0" id="account_unique_table">
+            <tr id="dontremove">
+                <th style="min-width:60px">Name</th>
+                <th style="min-width:20px">ABV</th>
+                <th style="min-width:90px">Volume</th>
+                <th style="min-width:150px">Brewery</th>
+            </tr>
+        </table>
+    </div>
+
+
+
+{% endblock %}

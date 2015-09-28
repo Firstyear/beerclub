@@ -1,0 +1,70 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  background: #005a9c;
+  background-image: -webkit-linear-gradient(top, #005a9c, #4391ca);
+  background-image: -moz-linear-gradient(top, #005a9c, #4391ca);
+  background-image: -ms-linear-gradient(top, #005a9c, #4391ca);
+  background-image: -o-linear-gradient(top, #005a9c, #4391ca);
+  background-image: linear-gradient(to bottom, #005a9c, #4391ca);
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Arial;
+  color: #ffffff !important;
+  font-size: 10px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none !important;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+label {
+
+  display:inline-block;
+  width: 170px;
+
+}
+
+#block_content{
+  margin-top: 20px;
+}
+
+.messages{
+  margin-top: 20px;
+}
+
+#account_stats, #showhide{
+  display:none;
+}
+
+#content{
+  margin:10px;
+}
+
+#drink_form{
+  float:left;
+  width: 400px;
+}
+
+#account_stats{
+  float:left;
+  width: 300px;
+}
+
+#extras{
+  margin-top: 10px;
+}

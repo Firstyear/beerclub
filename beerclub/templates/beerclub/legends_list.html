@@ -1,0 +1,54 @@
+{% extends "uofa.html" %}
+
+{% block content %}
+    <h3>Accounts</h3>
+    {% for account in object_list %}
+    <h4>{{ account }}</h4>
+    <table class="table table-striped"  style="text-align:left;font-size:10px">
+        <tr>
+            <th style="width:250px">Beer</th>
+            <th style="width:20px">ABV</th>
+            <th style="width:20px">Volume</th>
+            <th style="width:150px">Brewery</th>
+            <th style="width:150px">Country</th>
+            <th style="width:10px">Special</th>
+            <th style="width:100px">Date Drunk</th>
+        </tr>
+        <!-- This needs to filter on year -->
+        {% for drink in account.drink_set.all %}
+            <tr> 
+                <td>{{ drink.beerinst.beer.name }}</td>
+                <td>{{ drink.beerinst.beer.abvp }}</td>
+                <td>{{ drink.beerinst.volume }}</td>
+                <td>{{ drink.beerinst.beer.brewery }}</td>
+                <td>{{ drink.beerinst.beer.brewery.country }}</td>
+                <td>
+                {% if drink.special %}
+                    {{ drink.special }}
+                {% elif drink.debt == 0 %}
+                    Free
+                {% endif %}
+                </td>
+                <td>{{ drink.date }}</td>
+            <tr>
+        {% endfor %}
+        <!-- Add extra rows for filling in ... -->
+        <tr><td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr><td>&nbsp;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    {% endfor %}
+{% endblock %}

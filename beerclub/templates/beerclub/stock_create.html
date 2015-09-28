@@ -1,0 +1,18 @@
+{% extends "uofa.html" %}
+
+{% block content %}
+
+    <script src="/static/beerclub.js" async></script>
+
+    {{ form.non_field_errors }}
+    <form method="post" id="stock_form">
+        {% csrf_token %}
+        <div class="fieldWrapper">
+            {{ form.barcode.errors }}
+            <label for="id_barcode">Barcode:</label>
+            {{ form.barcode }}
+        </div>
+        <input id="submit" type="submit" value="Submit" class="btn btn-success"/>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,771 @@
+/* University of Adelaide
+ * print stylesheet (usable by N4)
+ * uses pixel sizes.
+ * author: ASW + DRL - version:  January 2006
+ */
+ 
+.noprint {
+	width: 100%;
+	display: none;
+}
+.editbox { 
+	display: none;
+}
+
+	
+/* body
+------------------------------------------------------ */
+
+body, table {
+	color: #456;
+	}
+body {
+	margin: 10px;
+	background-color: white;
+	}
+tt, pre {
+	font-family: Geneva,Rockwell,Courier,sans-serif;
+	}
+
+/* font selection
+------------------------------------------------------ */
+
+body, .content, .megalinks, a.megalinks, .promo, a.promo, h1, h2, h3, h4, h5, h6, ul, li, ol, blockquote, li {
+	font-family: Verdana,Helvetica,Geneva,sans-serif;
+	font-size: 12px;
+	line-height: 16px;
+	}
+table {
+	font-family: Verdana,Helvetica,Geneva,sans-serif;
+	font-size: 12px;
+	}
+.linkinfo, .contact, a.contact, .textzoom, a.textzoom, .news, a.news, table.caption, tr.caption, td.caption, .caption, a.caption, .footer, a.footer, .footer-reverse, a.footer-reverse, input.btn, .editbox, .editboxtitle,
+ a.secnav, a.secnav2, a.secnav3, a.promonav, a.horiznav, #crumb, .crumb, a.crumb, .breadcrumb, a.breadcrumb, .toplinks, a.toplinks, table.caption li, table.crumb li {
+	font-family: Verdana,Helvetica,Geneva,sans-serif;
+	font-size: 10px;
+	line-height: 12px;
+	}
+h1,h2,.heading { font-family: Arial,Helvetica,Geneva,sans-serif }
+
+/* topbar
+------------------------------------------------------ */
+
+.toplinks {
+	color: #fa3;
+	font-weight: normal;
+	text-decoration: none;
+	}
+a.toplinks {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	}
+a.toplinks:active, a.toplinks:hover { 
+	color: #FC3;
+	text-decoration: underline;
+	}
+
+/* crumb
+------------------------------------------------------ */
+
+.crumb, a.crumb {
+	color: #456;
+	font-weight: normal;
+	text-decoration: none;
+	}
+a.crumb:active, a.crumb:hover { 
+	color: #369;
+	text-decoration: underline;
+	}
+a.crumb:visited { 
+	color: #036;
+	text-decoration: none;
+	}
+#crumb a {
+	color: #456;
+	font-weight: normal;
+	text-decoration: none;
+	}
+#crumb a:active, #crumb a:hover { 
+	color: #369;
+	text-decoration: underline;
+	}
+#crumb a:visited { 
+	color: #036;
+	text-decoration: none;
+	}
+
+/* old styles for breadcrumbs
+------------------------------------------------------ */
+
+.breadcrumb, a.breadcrumb {
+	color: #456;
+	font-weight: normal;
+	text-decoration: none;
+	}
+a.breadcrumb:active, a.breadcrumb:hover { 
+	color: #369;
+	text-decoration: none;
+	}
+a.breadcrumb:visited { 
+	color: #036;
+	text-decoration: underline;
+	}
+	
+/* anchors
+------------------------------------------------------ */
+
+.content a:link {
+	color: #369;
+	text-decoration: underline;
+	}
+.content a:hover {
+	color: black;
+	}
+.content a:active {
+	color: #996;
+	}
+.content a:visited {
+	color: #663;
+	}
+
+/* navigation
+------------------------------------------------------ */
+
+a.secnav {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	}
+.content secnav a:link {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	}
+a.secnav2 {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	}
+.content secnav2 a:link {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	}
+a.secnav3 {
+	color: white;
+	font-weight: normal;
+	text-decoration: none;
+	}
+a.promonav {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	}
+a.horiznav {
+	color: #369;
+	font-weight: bold;
+	text-decoration: none;
+	}
+a.horiznav:active, a.horiznav:hover {
+	color: #036;
+	font-weight: bold;
+	text-decoration: underline;
+	}
+a.secnav:active, a.secnav:hover, a.secnav2:active, a.secnav2:hover, 
+a.secnav3:active, a.secnav3:hover, a.promonav:active, a.promonav:hover { 
+	color: #FFC;
+	text-decoration: underline;
+	}
+
+/* heading 1
+------------------------------------------------------ */
+
+h1 {
+	color: #603;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	font-size: 135%;
+	line-height: 110%;
+	font-weight: bold;
+	}
+.content h1 a:link {
+	color: #603;
+	text-decoration: none;
+	}
+.content h1 a:hover {
+	color: black;
+	text-decoration: underline;
+	}
+
+/* heading 2
+------------------------------------------------------ */
+
+h2 {
+	color: #368;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	font-size: 135%;
+	line-height: 110%;
+	font-weight: bold;
+	}
+.content h2 a:link {
+	color: #368;
+	text-decoration: none;
+	}
+.content h2 a:hover {
+	color: black;
+	text-decoration: underline;
+	}
+.heading {
+	color: #368;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 125%;
+	font-weight: normal;
+	}
+
+/* heading 3
+------------------------------------------------------ */
+
+h3 {
+	color: #066;
+	margin-top: 15px;
+	margin-bottom: 10px;
+	font-size: 100%;
+	font-weight: bold;
+	}
+.content h3 a:link {
+	color: #066;
+	text-decoration: none;
+	}
+.content h3 a:hover {
+	color: black;
+	text-decoration: underline;
+	}
+
+/* heading 4
+------------------------------------------------------ */
+
+h4 {
+	color: #188;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 100%;
+	font-weight: bold;
+	}
+.content h4 a:link {
+	color: #188;
+	text-decoration: none;
+	}
+.content h4 a:hover {
+	color: black;
+	text-decoration: underline;
+	}
+
+/* heading 5
+------------------------------------------------------ */
+
+h5 {
+	color: #996;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 100%;
+	font-weight: bold;
+	font-style: italic;
+	}
+.content h5 a:link {
+	color: #996;
+	text-decoration: none;
+	}
+.content h5 a:hover {
+	color: black;
+	text-decoration: underline;
+	}
+
+/* heading 6
+------------------------------------------------------ */
+
+h6 {
+	color: #744;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 100%;
+	font-weight: normal;
+	font-style: italic;
+	}
+.content h6 a:link {
+	color: #744;
+	text-decoration: none;
+	}
+.content h6 a:hover {
+	color: black;
+	text-decoration: underline;
+	}
+
+/* sub-headings
+------------------------------------------------------ */
+
+.subhead, a.subhead {
+	color: #036;
+	font-weight: bold;
+	text-decoration: none;
+	}
+a.subhead:hover { 
+	color: black;
+	text-decoration: underline;
+	}
+td.megalinks, td.megalinks a:link, td.megalinks a:active, td.megalinks a:visited {
+	color: #369;
+	font-weight: normal;
+	text-decoration: none;
+	}
+td.megalinks a:hover { 
+	color: #036;
+	text-decoration: underline;
+	}
+
+/* lists/blockquote
+------------------------------------------------------ */
+
+li {
+	color: #456;
+	}
+ul {
+	list-style-type: square;
+	list-style-position: outside;
+	padding-top: 0px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	margin-left: 10px; 
+	}
+blockquote {
+	color: #456;
+	margin-bottom: 20px;
+	}
+
+/* associated styles
+------------------------------------------------------ */
+
+.contact, a.contact {
+	color: white;
+	}
+a.contact:active, a.contact:hover {
+	color: #036;
+	}
+.footer {
+	color: #456;
+	}
+a.footer {
+	color: #369;
+	}
+a.footer:active, a.footer:hover {
+	color: black;
+	}
+.textzoom, a.textzoom {
+	color: white;
+	font-weight: normal;
+	}
+a.textzoom:active, a.textzoom:hover {
+	color: #036;
+	text-decoration: underline;
+	}
+ #news-container {
+	padding: 15px;
+	padding-top: 0px;
+	border-bottom: 1px solid #789;
+	} 
+.news {
+	color: #036;
+	font-weight: normal;
+	}
+a.news {
+	color: #369;
+	}
+a.news:active, a.news:hover { 
+	color: black;
+	}
+table.caption, tr.caption, td.caption, .caption, a.caption {
+	color: #456;
+	}
+.linkinfo {
+	color: #666;
+	text-decoration: none;
+	}
+.alert, a.alert {
+	color: #C00;
+	font-weight: bold;
+	}
+
+/* search area
+------------------------------------------------------ */
+
+input.searchinput { 
+	width: 165px;
+	padding: 0px;
+	}
+input.btn {
+	border: 1px solid white;
+	background-color: #996;
+	color: white;
+	font-weight: bold;
+	margin-top: 5px;
+	width: 80px;
+	padding: 2px;
+	}
+#search form {
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+	}
+
+/* tables and table headers
+------------------------------------------------------ */
+
+th {
+	color: #036;
+	background-color: #cdc;
+	font-weight: bold;
+	text-align: left;
+	padding: 3px;
+	vertical-align: top;
+	}
+th.alternate {
+	color: white;
+	background-color: #603;
+	font-weight: bold;
+	text-align: left;
+	padding: 3px;
+	vertical-align: top;
+	}
+th.alternate1 {
+	color: white;
+	background-color: #789;
+	font-weight: bold;
+	text-align: left;
+	padding: 3px;
+	vertical-align: top;
+	}
+table.tabular { 
+	border-collapse: separate;
+	border-spacing: 1px;
+	background-color: white;
+	font-size: 1em;
+	}
+table.tabular td {
+	background-color: #EED;
+	padding: 5px;
+	font-size: 1em;
+	}
+table.tabular th {
+	color: #036;
+	background-color: #CDC;
+	font-weight: bold;
+	font-size: 1em;
+	text-align: left;
+	padding: 5px;
+	vertical-align: middle;
+	}
+table.tabular th.alternate {
+	color: white;
+	background-color: #603;
+	font-weight: bold;
+	font-size: 1em;
+	text-align: left;
+	padding: 5px;
+	vertical-align: top;
+	}
+table.tabular tr.accent1 > td, table.tabular td.accent1 {
+	background-color: #789;
+	color: white;
+}
+table.tabular tr.accent2 > td, table.tabular td.accent2 {
+	background-color: #CEBB97;
+}
+table.tabular tr.accent3 > td, table.tabular td.accent3 {
+	background-color: #C4CAD4;
+}
+table.tabular tr.accent4 > td, table.tabular td.accent4 {
+	background-color: #DCE2EC;
+}
+table.tabular tr.accent5 > td, table.tabular td.accent5 {
+	background-color: white;
+}
+table.tabular tr.accent6 > td, table.tabular td.accent6 {
+	background-color: #D7D7CD;
+	color: #036;
+	font-weight: bold;
+}
+table.tabular tr.accent7 > td, table.tabular td.accent7 {
+	background-color: #FFFDD2;
+}
+tr.accent, td.accent {
+	background-color: #789;
+	color: white;
+	font-weight: bold;
+	border: 1px solid white;
+	}
+tr.accent1, td.accent1 {
+	background-color: #cebb97;
+	border: 1px solid white;
+	}
+tr.accent2, td.accent2 {
+	background-color: #eed;
+	}
+tr.accent3, td.accent3 {
+	color: #036;
+	background-color: #cdc;
+	}
+tr.accent4, td.accent4 {
+	background-color: #d4e5f7;
+	}
+tr.accent5, td.accent5 {
+	background-color: #d7d7cd;
+	color: #036;
+	}
+tr.accent6, td.accent6 {
+	background-color: #c4cad4;
+	}
+tr.accent7, td.accent7 {
+	background-color: #dce2ec;
+	}
+tr.bkgd1, td.bkgd1 {
+	background-color: #e0e7ef;
+	}
+tr.bkgd2, td.bkgd2 {
+	background-color: #f8f8f8;
+	}
+tr.bkgd3, td.bkgd3 {
+	background-color: #c4cae4;
+	}
+tr.bkgd4, td.bkgd4 {
+	background-color: #dce2ec;
+	}
+	
+/* old styles for table colours
+------------------------------------------------------ */
+
+
+td.ta1, tr.ta1 {
+	text-align: center;
+	color: white;
+	background-color: #036;
+	font-weight: bold;
+	}
+td.ta2, tr.ta2 {
+	background-color: #789;
+	color: white;
+	font-weight: bold;
+	}
+td.ta3, tr.ta3 {
+	background-color: #a0c4dd;
+	}
+td.ta4, tr.ta4 {
+	background-color: #deefb3;
+	}
+td.tb1, tr.tb1 {
+	background-color: #b0c4de;
+	color: black;
+	font-weight: bold;
+	}
+td.tb2, tr.tb2 {
+	background-color: #f0F8ff;
+	color: black;
+	}
+tr.back1, td.back1 { 
+	background-color: #7c223c; 
+	color: white; 
+	font-weight: bold 
+	}
+tr.back2, td.back2 { 
+	background-color: #dccea5 
+	}
+tr.back3, td.back3 { 
+	background-color: #6c767d; 
+	color: white 
+	}
+tr.back4, td.back4 { 
+	background-color: #cccedc;
+	}
+tr.back5, td.back5 { 
+	background-color: #c4cad4;
+	}
+tr.back6, td.back6 { 
+	background-color: #dce2ec;
+	}
+td.tblhead1, tr.tblhead1 {
+	text-align: center; 
+	color: #036; 
+	background-color: #bcd; 
+	font-weight: bold; 
+}
+td.tblhead2, tr.tblhead2 {
+	background-color: #369; 
+	color: white; 
+	font-weight: bold;
+}
+td.tblhead3, tr.tblhead3 {
+	background-color: #acd; 
+}
+td.tblcont, tr.tblcont {
+	background-color: #def; 
+}
+td.ughead1, tr.ughead1 {
+	color: white; 
+	background-color: #943; 
+	font-weight: bold; 
+}
+td.ughead2, tr.ughead2 {
+	background-color: #789; 
+	color: white; 
+	font-weight: normal;
+	font-style: italic;
+}
+td.ughead3, tr.ughead3 {
+	background-color: #bcb; 
+}
+td.ugcont, tr.ugcont {
+	background-color: #eed;
+}
+td.ugsecthead, tr.ugsecthead {
+	background-color: #456;
+	color: white; 
+	font-weight: normal;
+	font-style: italic; 
+}
+td.ugsectcont, tr.ugsectcont {
+	background-color: #cdc; 
+}
+td.ugintent, tr.ugintent {
+	background-color: #eed;
+} 
+tr.pgta1, td.pgta1 {
+	background-color: #603;
+	color: white;
+	font-weight: bold;
+}
+tr.pgta2, td.pgta2 {
+	background-color: #ccd; 
+	font-weight: normal;
+	font-style: italic; 
+}
+tr.pgta3, td.pgta3 {
+	background-color: #ccb;
+	font-weight: bold;
+}
+tr.pgta4, td.pgta4 {
+	font-family: Verdana,Helvetica,Geneva,sans-serif;
+	font-size: 12px;
+	background-color: #eed;
+}
+
+/* border styles
+------------------------------------------------------ */
+
+.keyline, td.keyline, tr.keyline {
+	border: 1px solid #789;
+	}
+.keyline-top, td.keyline-top, tr.keyline-top {
+	border-top: 1px solid #789;
+	}
+.keyline-bottom, td.keyline-bottom, tr.keyline-bottom {
+	border-bottom: 1px solid #789;
+	}
+.keyline-left, td.keyline-left, tr.keyline-left {
+	border-left: 1px solid #789;
+	}
+.keyline-right, td.keyline-right, tr.keyline-right {
+	border-right: 1px solid #789;
+	}
+.keyline-lr, td.keyline-lr, tr.keyline-lr {
+	border-left: 1px solid #789;
+	border-right: 1px solid #789;
+	}
+.keyline-tlr, td.keyline-tlr, tr.keyline-tlr {
+	border-top: 1px solid #789;
+	border-left: 1px solid #789;
+	border-right: 1px solid #789;
+	}
+.keyline-blr, td.keyline-blr, tr.keyline-blr {
+	border-bottom: 1px solid #789;
+	border-left: 1px solid #789;
+	border-right: 1px solid #789;
+	}
+
+/* old styles for content zone borders
+------------------------------------------------------ */
+
+#body-nofoot {
+	border-top: 1px solid #789;
+	border-left: 1px solid #789;
+	border-right: 1px solid #789;
+}
+.promozone {
+	border-left: 1px solid #789;
+	border-right: 1px solid #789;
+	}
+.boxedzone {
+	border: 1px solid #789;
+	}
+.boxedzone-notop {
+	border-bottom: 1px solid #789;
+	border-left: 1px solid #789;
+	border-right: 1px solid #789;
+	}
+
+/* horizontal rules
+------------------------------------------------------ */
+
+hr {
+  	border: 0;
+  	width: 100%;
+	color: #789;
+	background-color: #789;
+	height: 1px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	}
+
+/* online editing
+------------------------------------------------------- */
+
+.editbox {
+	color: #666;
+	border: 0px solid #999;
+	background-color: #EED;
+	padding: 10px;
+	margin: 1px;
+	float: none;
+	}
+.editboxtitle {
+	font-weight: bold;
+	display: block;
+	}
+.editboxlock {
+	color: red;
+	}
+.tms-meta {
+	display: none;
+	margin-top: 1em;
+	text-align: right;
+	color: #AAA;
+	}
+
+/* other styles
+------------------------------------------------------ */
+
+.searchurl {
+	color: #036;
+	}
+.searchterm {
+	background-color: #CCFFFF;
+	font-weight: bold;
+	}
+.mceVisualAid {
+	border: 1px dashed #BBBBBB;
+	}
+.photo-icon {
+	margin-right: 5px;
+	margin-left: 0px;
+	border: none;
+	}

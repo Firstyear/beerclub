@@ -1,0 +1,16 @@
+{% extends "uofa.html" %}
+
+{% block content %}
+
+    {{ form.non_field_errors }}
+    <form method="post">
+        {% csrf_token %}
+        <div class="fieldWrapper">
+            {{ form.name.errors }}
+            <label for="id_name">Staff ID Number:</label>
+            {{ form.name }}
+        </div>
+        <input type="submit" value="Induct!" class="btn btn-success"/>
+    </form>
+
+{% endblock %}

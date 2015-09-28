@@ -1,0 +1,27 @@
+{% extends "uofa.html" %}
+
+{% block content %}
+
+<p>
+Volume of beer: {{ total_volume }}L
+</p>
+
+<p>
+Volume of ethanol: {{ total_ethanol }}L
+</p>
+
+<p>
+Number of standard drinks: {{ std_drinks }}
+</p>
+
+<p>
+{% for account in top_five %}
+    {{ account.drinks_unique_had }}: {{ account.user.first_name }} {{ account.user.last_name }}<br/>
+{% endfor %}
+</p>
+
+<p>
+Cash on hand: {{ caccount.balance }} AU Cents
+</p>
+
+{% endblock %}

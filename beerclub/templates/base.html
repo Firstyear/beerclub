@@ -1,0 +1,23 @@
+
+{% load staticfiles %}
+
+<!DOCTYPE html> 
+
+<html lang="en">
+    <head>
+    </head>
+
+    <body>
+        {% if not user.is_anonymous %}
+            <a href="{% url 'accounts_logout' %}">Logout</a>
+            {% if user.is_staff %}
+                <a href="/admin/">Admin</a>
+            {% endif %}
+        {% endif %}
+
+        {% block content %}
+        <p>Template</p>
+        {% endblock %}
+    </body>
+
+</html>

@@ -1,0 +1,10 @@
+{% extends "uofa.html" %}
+
+{% block content %}
+
+{% if user.account_set.all|length == 0 %}
+<h2>What are you doing here stranger???</h2>
+<h2>Go see the meisters in the staff room, friday evening</h2>
+{% endif %}
+
+{% endblock %}

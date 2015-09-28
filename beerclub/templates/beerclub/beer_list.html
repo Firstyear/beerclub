@@ -1,0 +1,50 @@
+{% extends "uofa.html" %}
+
+{% block content %}
+    <h3>Beers</h3>
+
+    <script src="/static/beerclub.js" async></script>
+    <form class="noprint" method="get" action="{% url 'beerclub:beers' %}" >
+        <input id="id_beer" type="text" name="search" placeholder="Search Beer ...">
+        <input id="id_beer_pk" name="beer_pk" type="hidden" />
+        <input type="submit" value="Search" class="btn btn-success"/>
+    </form>
+
+    {% if object_list %}
+    <table class="table table-responsive table-striped">
+        <tr>
+            <th style="width:250px">Beer</th>
+            <th style="width:20px">ABV</th>
+            <th style="width:90px">Volume</th>
+            <th style="width:150px">Brewery</th>
+            <th style="width:150px">Country</th>
+        {% if user.is_staff %}
+            <th style="width:20px">Stock</th>
+            <th style="width:400px">Who, When</th>
+        {% endif %}
+        </tr>
+        <!-- This needs to filter on year -->
+        {% for beerinst in object_list %}
+            <tr> 
+                {% if beerinst.special %}
+                    <td style="background-color:yellow" >{{ beerinst.beer.name }}</td>
+                {% else %}
+                    <td>{{ beerinst.beer.name }}</td>
+                {% endif %}
+                <td>{{ beerinst.beer.abvp }}</td>
+                <td>{{ beerinst.volume }}ml {{ beerinst.container }}</td>
+                <td>{{ beerinst.beer.brewery }}</td>
+                <td>{{ beerinst.beer.brewery.country }}</td>
+                {% if user.is_staff %}
+                <td>{{ beerinst.stock_total }}</td>
+                <td>
+                    {% for drink in beerinst.drink_set_year %}
+                        {{ drink.account }}, {{ drink.date }}; </br>
+                    {% endfor %}
+                </td>
+                {% endif %}
+            <tr>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
