@@ -8,7 +8,7 @@ class DrinkForm(forms.Form):
     name_pk = forms.IntegerField(initial=0)
     payee_name_pk = forms.IntegerField(initial=0, required=False)
     beer_pk = forms.IntegerField(initial=0)
-    value = forms.IntegerField(initial=0, required=False)
+    value = forms.CharField(initial=0, required=False)
     free = forms.BooleanField(required=False)
     special = forms.BooleanField(required=False)
 

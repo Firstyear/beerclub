@@ -1,4 +1,5 @@
 import json
+import re
 
 from datetime import date, timedelta
 
@@ -118,10 +119,15 @@ class DrinkCreateView(FormView):
     def form_valid(self, form):
         data = form.cleaned_data
         account_id = data.get('name_pk', 0)
-        account = Account.objects.get(pk=account_id)
+        if account_id != 0:
+            account = Account.objects.get(pk=account_id)
+        else:
+            messages.error(self.request, "Invalid account")
+            return super(DrinkCreateView, self).form_invalid(form)
         beer_id = data.get('beer_pk', 0)
         payee_id = data.get('payee_name_pk', 0)
-        value = data.get('value', 0)
+        translation_table = dict.fromkeys(map(ord, '$.'), None)
+        value = data.get('value', 0).translate(translation_table)
         if value == 0:
             #### Do nothing
             pass
@@ -268,5 +274,3 @@ def create_drink_sale(account, beerinst, free, special, selfserve=False, payee_i
         raise Exception("You are not yet due a special")
     drink.save()
     return drink
-
-

@@ -1,2 +1,4 @@
 django-oauth-toolkit
 django-extensions
+djangorestframework
+django-auth-ldap
