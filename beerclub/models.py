@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from django.db.models.signals import post_save
 from django.core.urlresolvers import reverse
@@ -52,7 +54,7 @@ class BeerInst(models.Model):
         ordering = ["beer__name"]
 
     def __unicode__(self):
-        return '%s, %s (%s) %sml' % (self.beer.name, self.beer.brewery.name, 
+        return '%s, %s (%s) %sml' % (self.beer.name, self.beer.brewery.name,
             self.container, self.volume)
 
     def drink_set_year(self):
@@ -229,7 +231,7 @@ class Drink(models.Model):
 class Payment(models.Model):
     account = models.ForeignKey(Account)
     value = models.IntegerField(help_text="This is a value in AU cents")
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField(default=datetime.datetime.now)
 
     def __unicode__(self):
         return "%s -> +%sc" % (self.account.__unicode__(), self.value)
@@ -269,6 +271,3 @@ def stock_auto_reconcile(sender, **kwargs):
 post_save.connect(stock_auto_reconcile, sender=Drink)
 post_save.connect(stock_auto_reconcile, sender=Stock)
 post_save.connect(stock_auto_reconcile, sender=StockWriteOff)
-
-
-
