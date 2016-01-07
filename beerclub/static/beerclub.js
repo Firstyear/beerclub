@@ -1,6 +1,8 @@
 
 $(function() {
 
+  $("#id_value").inputmask({"alias":"currency"});
+
   $('#account_stats').hide();
   $('#account_unique').hide();
   $("#showhide").hide();
