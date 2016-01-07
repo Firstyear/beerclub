@@ -50,13 +50,13 @@ class PaymentAdmin(admin.ModelAdmin):
     fields = ('account', 'date', 'value')
     list_display = ('account', 'date', 'value')
     search_fields = ['account__user__first_name', 'account__user__last_name']
-    #readonly_fields = ('date',)
+    readonly_fields = ('date',)
 
 class PaymentInLine(admin.TabularInline):
     model = Payment
     extra = 0
     fields = ('account', 'value')
-    readonly_fields = ('date',)
+    #readonly_fields = ('date',)
     def get_queryset(self, request):
         qs = super(PaymentInLine, self).get_queryset(request)
         enddate = date.today()
