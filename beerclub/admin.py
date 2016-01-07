@@ -56,7 +56,7 @@ class PaymentInLine(admin.TabularInline):
     model = Payment
     extra = 0
     fields = ('account', 'value')
-    #readonly_fields = ('date',)
+    readonly_fields = ('date',)
     def get_queryset(self, request):
         qs = super(PaymentInLine, self).get_queryset(request)
         enddate = date.today()
@@ -91,4 +91,3 @@ admin.site.register(Payment, PaymentAdmin)
 admin.site.register(Account, AccountAdmin)
 admin.site.register(Stock, StockAdmin)
 admin.site.register(StockWriteOff, StockWriteOffAdmin)
-
