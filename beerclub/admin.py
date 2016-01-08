@@ -50,7 +50,7 @@ class PaymentAdmin(admin.ModelAdmin):
     fields = ('account', 'date', 'value')
     list_display = ('account', 'date', 'value')
     search_fields = ['account__user__first_name', 'account__user__last_name']
-    #readonly_fields = ('date',)
+    readonly_fields = ('date',)
 
 class PaymentInLine(admin.TabularInline):
     model = Payment
@@ -91,4 +91,3 @@ admin.site.register(Payment, PaymentAdmin)
 admin.site.register(Account, AccountAdmin)
 admin.site.register(Stock, StockAdmin)
 admin.site.register(StockWriteOff, StockWriteOffAdmin)
-
