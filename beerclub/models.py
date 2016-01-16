@@ -143,10 +143,17 @@ class Account(models.Model):
         spec_drinks = self.drink_set.filter(date__year=date.today().year).values_list('beerinst__beer__id', flat=True)
         return len(spec_drinks)
 
-    @property
-    def drinks_unique_had(self):
-        spec_drinks = self.drink_set.filter(date__year=date.today().year).values_list('beerinst__beer__id', flat=True).distinct()
+    def drinks_unique_had_year(self, stat_year=None):
+        print('drink unique had year')
+        print(stat_year)
+        if stat_year is None:
+            stat_year = date.today().year
+        spec_drinks = self.drink_set.filter(date__year=stat_year).values_list('beerinst__beer__id', flat=True).distinct()
         return len(spec_drinks)
+
+    @property
+    def drinks_unique_had(self, stat_year=None):
+        return self.drinks_unique_had_year()
 
     @property
     def drinks_volume(self):

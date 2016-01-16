@@ -22,7 +22,10 @@ from django.db import models
 
 from beerclub.models import Account, Beer, Drink, Payment, BeerInst, Stock, ClubAccount
 from beerclub.forms import DrinkForm, AccountCreateForm, StockCreateForm
+
+from functools import partial
 # Create your views here.
+
 
 class RootView(TemplateView):
     template_name = 'beerclub/root.html'
@@ -226,10 +229,16 @@ class StatsView(TemplateView):
         return super(StatsView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
+        stat_year = date.today().year
+        render_cash = True
+        if 'year' in kwargs:
+            stat_year = date(year=int(kwargs['year']), month=1, day=1).year
+            render_cash = False
         context = super(StatsView, self).get_context_data(**kwargs)
-        year_drinks = Drink.objects.filter(date__year=date.today().year)
+        context['render_cash'] = render_cash
+        year_drinks = Drink.objects.filter(date__year=stat_year)
         accounts = Account.objects.all()
-        total_volume = Drink.objects.filter(date__year=date.today().year).aggregate(beerinst__volume=models.Sum('beerinst__volume'))['beerinst__volume']
+        total_volume = Drink.objects.filter(date__year=stat_year).aggregate(beerinst__volume=models.Sum('beerinst__volume'))['beerinst__volume']
         if total_volume is None:
             total_volume = 0
         ### Total volume
@@ -250,9 +259,24 @@ class StatsView(TemplateView):
         context['total_ethanol'] = total_ethanol / 1000.0
         context['std_drinks'] = total_ethanol / 12.67
 
-        context['top_five'] = sorted(accounts, key=lambda account: account.drinks_unique_had, reverse=True)[:5]
+        top_five_pre = sorted(accounts, key=lambda account: account.drinks_unique_had_year(stat_year), reverse=True)[:5]
+        context['top_five'] = map(lambda account: '%s: %s %s' % (account.drinks_unique_had_year(stat_year), account.user.first_name, account.user.last_name), top_five_pre)
         #context['most_volume'] = sorted(accounts, key=lambda account: account.drinks_volume, reverse=True)[0]
         #context['most_volume_ethanol'] = sorted(accounts, key=lambda account: account.drinks_ethanol_volume, reverse=True)[0]
+        context['year'] = stat_year
+        return context
+
+class HistoryView(TemplateView):
+    template_name = 'beerclub/history.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return HttpResponseForbidden()
+        return super(HistoryView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(HistoryView, self).get_context_data(**kwargs)
+        context['pastyears'] = Drink.objects.all().dates('date','year',order='DESC')
         return context
 
 ##########################################

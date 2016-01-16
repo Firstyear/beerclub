@@ -57,6 +57,7 @@
                     {% if user.is_staff %}
                     <a class="btn btn-success navbar-btn" href="{% url 'beerclub:stockimport' %}">Import Stock</a>
                     <a class="btn btn-success navbar-btn" href="{% url 'beerclub:stats' %}">Stats</a>
+                    <a class="btn btn-success navbar-btn" href="{% url 'beerclub:history' %}">History</a>
                     <a class="btn btn-success navbar-btn" href="/admin/">Admin</a>
                     {% endif %}
                     <a class="btn btn-success navbar-btn" href="{% url 'accounts_logout' %}">Logout</a>

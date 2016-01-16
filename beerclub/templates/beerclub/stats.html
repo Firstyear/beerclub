@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<h3>History of Beerclub: {{ year }} edition</h3>
+
 <p>
 Volume of beer: {{ total_volume }}L
 </p>
@@ -16,12 +18,14 @@ Number of standard drinks: {{ std_drinks }}
 
 <p>
 {% for account in top_five %}
-    {{ account.drinks_unique_had }}: {{ account.user.first_name }} {{ account.user.last_name }}<br/>
+    {{ account }}<br />
 {% endfor %}
 </p>
 
-<p>
-Cash on hand: {{ caccount.balance }} AU Cents
-</p>
+{% if render_cash %}
+    <p>
+    Cash on hand: {{ caccount.balance }} AU Cents
+    </p>
+{% endif %}
 
 {% endblock %}

@@ -1,6 +1,6 @@
 #from django.conf.urls.defaults import *
 from django.conf.urls import patterns, include, url
-from beerclub.views import AccountListView, LegendsListView, BeerListView, DrinkCreateView, AccountCreateView, StockView, BeerUniqueListView, RootView, StatsView
+from beerclub.views import AccountListView, LegendsListView, BeerListView, DrinkCreateView, AccountCreateView, StockView, BeerUniqueListView, RootView, StatsView, HistoryView
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = patterns('',
@@ -12,6 +12,8 @@ urlpatterns = patterns('',
     url(r'^populate/$', AccountCreateView.as_view(), name='populate' ),
     url(r'^stock/import/$', StockView.as_view(), name='stockimport'),
     url(r'^stats/$', StatsView.as_view(), name='stats'),
+    url(r'^stats/(?P<year>.+)/$', StatsView.as_view(), name='stats_year'),
+    url(r'^history/$', HistoryView.as_view(), name='history'),
     # Django rest api
     # Definetly used
     url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
