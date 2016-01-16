@@ -144,8 +144,6 @@ class Account(models.Model):
         return len(spec_drinks)
 
     def drinks_unique_had_year(self, stat_year=None):
-        print('drink unique had year')
-        print(stat_year)
         if stat_year is None:
             stat_year = date.today().year
         spec_drinks = self.drink_set.filter(date__year=stat_year).values_list('beerinst__beer__id', flat=True).distinct()

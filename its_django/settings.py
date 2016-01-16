@@ -126,6 +126,8 @@ REST_FRAMEWORK = {
     )
 }
 
+LOGIN_URL='/accounts/login/'
+
 try:
     from local_settings import *
 except ImportError:

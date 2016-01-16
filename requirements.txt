@@ -1,4 +1,5 @@
+django>=1.9.1
 django-oauth-toolkit
-django-extensions
+django-extensions>=1.4.4
 djangorestframework
 django-auth-ldap

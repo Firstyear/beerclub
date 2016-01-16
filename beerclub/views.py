@@ -18,6 +18,8 @@ from django.utils import timezone
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required, permission_required
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from django.db import models
 
 from beerclub.models import Account, Beer, Drink, Payment, BeerInst, Stock, ClubAccount
@@ -26,8 +28,7 @@ from beerclub.forms import DrinkForm, AccountCreateForm, StockCreateForm
 from functools import partial
 # Create your views here.
 
-
-class RootView(TemplateView):
+class RootView(LoginRequiredMixin, TemplateView):
     template_name = 'beerclub/root.html'
 
     #@method_decorator(permission_required('beerclub.can_login', raise_exception=True))
@@ -35,7 +36,7 @@ class RootView(TemplateView):
         return super(RootView, self).dispatch(*args, **kwargs)
 
 
-class AccountListView(ListView):
+class AccountListView(LoginRequiredMixin, ListView):
     model = Account
     template_name = 'beerclub/account_list.html'
 
@@ -59,7 +60,7 @@ class AccountListView(ListView):
     def dispatch(self, *args, **kwargs):
         return super(AccountListView, self).dispatch(*args, **kwargs)
 
-class LegendsListView(ListView):
+class LegendsListView(LoginRequiredMixin, ListView):
     model = Account
     template_name = 'beerclub/legends_list.html'
 
@@ -73,7 +74,7 @@ class LegendsListView(ListView):
     #def dispatch(self, *args, **kwargs):
     #    return super(LegendsListView, self).dispatch(*args, **kwargs)
 
-class BeerListView(ListView):
+class BeerListView(LoginRequiredMixin, ListView):
     model = BeerInst
     template_name = 'beerclub/beer_list.html'
 
@@ -93,7 +94,7 @@ class BeerListView(ListView):
     #def dispatch(self, *args, **kwargs):
     #    return super(BeerListView, self).dispatch(*args, **kwargs)
 
-class BeerUniqueListView(ListView):
+class BeerUniqueListView(LoginRequiredMixin, ListView):
     model = BeerInst
     template_name = 'beerclub/beer_list.html'
 
@@ -108,7 +109,7 @@ class BeerUniqueListView(ListView):
     #def dispatch(self, *args, **kwargs):
     #    return super(BeerUniqueListView, self).dispatch(*args, **kwargs)
 
-class DrinkCreateView(FormView):
+class DrinkCreateView(LoginRequiredMixin, FormView):
     template_name = 'beerclub/drink_create.html'
     form_class = DrinkForm
     success_url = "/bc/drink/create/"
@@ -151,7 +152,7 @@ class DrinkCreateView(FormView):
             messages.error(self.request, e)
         return super(DrinkCreateView, self).form_valid(form)
 
-class AccountCreateView(FormView):
+class AccountCreateView(LoginRequiredMixin, FormView):
     template_name = 'beerclub/account_create.html'
     form_class = AccountCreateForm
     success_url = "/bc/accounts"
@@ -189,7 +190,7 @@ class AccountCreateView(FormView):
             messages.success(self.request, "Added %s" % user)
         return super(AccountCreateView, self).form_valid(form)
 
-class StockView(FormView):
+class StockView(LoginRequiredMixin, FormView):
     template_name = 'beerclub/stock_create.html'
     form_class = StockCreateForm
     success_url = '/bc/stock/import/'
@@ -220,7 +221,7 @@ class StockView(FormView):
             messages.error(self.request, 'No such barcode')
         return super(StockView, self).form_valid(form)
 
-class StatsView(TemplateView):
+class StatsView(LoginRequiredMixin, TemplateView):
     template_name = 'beerclub/stats.html'
 
     def dispatch(self, request, *args, **kwargs):
@@ -266,7 +267,7 @@ class StatsView(TemplateView):
         context['year'] = stat_year
         return context
 
-class HistoryView(TemplateView):
+class HistoryView(LoginRequiredMixin, TemplateView):
     template_name = 'beerclub/history.html'
 
     def dispatch(self, request, *args, **kwargs):
