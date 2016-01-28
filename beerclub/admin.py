@@ -74,6 +74,7 @@ class AccountAdmin(admin.ModelAdmin):
 
 class BreweryAdmin(admin.ModelAdmin):
     inlines = [ BeerInLine ]
+    search_fields = ['name']
 
 class StockAdmin(admin.ModelAdmin):
     pass
