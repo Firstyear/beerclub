@@ -24,7 +24,7 @@ urlpatterns = patterns('',
     url(r'^api/account_self_serve/', 'beerclub.rest.account_self_serve', name='account_self_serve'),
     url(r'^api/account/(?P<id>.+)/', 'beerclub.rest.account', name='account_id'),
     url(r'^api/account_unique_available/(?P<id>.+)/', 'beerclub.rest.account_unique_available', name='account_unique_available_id'),
-    url(r'^api/account_drunk/(?P<user_id>.+)/(?P<beer_id>.+)/', 'beerclub.rest.account_drunk', name='account_drunk'),
+    url(r'^api/account_drunk/(?P<acc_id>.+)/(?P<beer_id>.+)/', 'beerclub.rest.account_drunk', name='account_drunk'),
     url(r'^api/account_search/(?P<term>.+)/', 'beerclub.rest.account_search', name='account_search'),
     #Maybe unused?
     url(r'^api/account_unique_available/', 'beerclub.rest.account_unique_available', name='account_unique_available'),
