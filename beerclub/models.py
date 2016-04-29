@@ -52,7 +52,7 @@ class BeerInst(models.Model):
         ordering = ["beer__name"]
 
     def __unicode__(self):
-        return '%s, %s (%s) %sml' % (self.beer.name, self.beer.brewery.name, 
+        return '%s, %s (%s) %sml' % (self.beer.name, self.beer.brewery.name,
             self.container, self.volume)
 
     def drink_set_year(self):
@@ -63,7 +63,10 @@ class BeerInst(models.Model):
 
     @property
     def volume_ethanol(self):
-        return self.volume * (self.beer.abvp / 100.0)
+        if (self.volume == None) or (self.beer.abvp == None):
+            return 0
+        else:
+            return self.volume * (self.beer.abvp / 100.0)
 
     def reconcile_stock(self):
         total_imported = self.stock_set.all().aggregate(quantity=models.Sum('quantity'))['quantity']
@@ -274,6 +277,3 @@ def stock_auto_reconcile(sender, **kwargs):
 post_save.connect(stock_auto_reconcile, sender=Drink)
 post_save.connect(stock_auto_reconcile, sender=Stock)
 post_save.connect(stock_auto_reconcile, sender=StockWriteOff)
-
-
-
