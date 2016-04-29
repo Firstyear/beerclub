@@ -250,9 +250,9 @@ def account_search(request, term=None):
 
 @api_view(['GET'])
 @permission_classes((IsAuthenticated, IsAdminUser))
-def account_drunk(request, user_id=None, beer_id=None):
+def account_drunk(request, acc_id=None, beer_id=None):
     # This may need to be account id ... 
-    account = Account.objects.get(user__id=user_id)
+    account = Account.objects.get(id=acc_id)
     beerinst = BeerInst.objects.get(pk=beer_id)
     beers = beerinst.beer
     drinks = Drink.objects.filter(account=account, beerinst__beer=beers, date__year=date.today().year)
