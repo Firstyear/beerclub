@@ -1,11 +1,11 @@
-from django.core.management.base import BaseCommand, CommandError 
+from django.core.management.base import BaseCommand, CommandError
 from beerclub.models import Account, Drink, Brewery, Beer
 from django.contrib.auth.models import User
 from django.db import transaction
 
 class Command(BaseCommand):
     args = ''
-    help = 'Merges two beers into each other, but leaves all BeerInsts attached.'
+    help = 'Merges two breweries into each other, but leaves all BeerInsts attached.'
 
     @transaction.atomic
     def handle(self, *args, **kwargs):
@@ -24,4 +24,3 @@ class Command(BaseCommand):
                     bi.save()
                 b.delete()
             print('RECOGNITION FOR DOING THE THING')
-
