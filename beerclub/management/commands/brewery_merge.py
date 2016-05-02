@@ -7,9 +7,13 @@ class Command(BaseCommand):
     args = ''
     help = 'Merges two breweries into each other, but leaves all BeerInsts attached.'
 
+
+    def add_arguments(self, parser):
+        parser.add_argument('brewery_id', nargs='+', type=int)
+
     @transaction.atomic
     def handle(self, *args, **kwargs):
-        ids = map(lambda x: int(x), args)
+        ids = map(lambda x: int(x), options['brewery_id'])
         brewery_keep = Brewery.objects.get(id=ids.pop(0))
         others = map(lambda x: Brewery.objects.get(id=x), ids)
         print("About to merge the following:")
