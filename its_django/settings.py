@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost' ]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.17.0.2' ]
 
 
 # Application definition
@@ -59,6 +59,20 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     #'django_auth_ldap.backend.LDAPBackend',
 )
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            # ... some options here ...
+            'context_processors' : [
+                'django.contrib.auth.context_processors.auth',
+            ]
+        },
+    },
+]
 
 #import ldap
 #from django_auth_ldap.config import LDAPSearch
@@ -96,7 +110,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Australia/Adelaide'
+TIME_ZONE = 'Australia/Brisbane'
 
 USE_I18N = True
 
